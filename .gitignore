@@ -1,0 +1,21 @@
+
+# ignore build files
+build
+
+# ignore binaries
+*.bin
+
+# For MacOS:
+.DS_Store
+
+# TextMate
+*.tmproj
+tmtags
+
+# emacs:
+*~
+\#*
+.\#*
+
+# vim:
+*.swp
