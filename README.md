@@ -1,17 +1,17 @@
 # Tarasila
 
 This is a set of pre-alpha modules aimed at high performace parsing and manipulation of biological sequences
-using the D programming language
+using the D programming language. Am actually using this repo to learn D! 
 
 ## Compiling tarasila
 
-To compile tarasila a recent edition of the [D compiler][D] is needed:
+To compile tarasila, a recent edition of the [D compiler][D] is required:
 
     DMD64 D Compiler v2.057
 
 ## Platforms
 
-Tarasila is developed and tested on Mac OS X but it should build on Linux and Windows.
+The modules are developed and tested on Mac OS X but they should build on Linux and Windows.
 
 ## License
 
