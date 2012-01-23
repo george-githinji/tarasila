@@ -19,7 +19,7 @@ Tarasila is licensed under the MIT license
 
 ## Source code
 
-The source code for Tarasila can be found on [github][source].
+The source code for Tarasila is available at [github][source].
 
 ## Contributors
 
@@ -28,5 +28,4 @@ The source code for Tarasila can be found on [github][source].
 Copyright (c) 2012
 
 [D]: http://www.d-programming-language.org/index.html
-[rake]: http://rake.rubyforge.org/
-[source]: https://github.com/george_g/tarasila
+[source]: https://github.com/georgeG/tarasila
