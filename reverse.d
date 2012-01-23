@@ -16,6 +16,6 @@ void main(string[] args){
       c ~= complement(n);
     }
 
-    writefln("The reverse complement is: %s",cast(string)(c));
+    writefln(cast(string)(c));
   }
 }

@@ -46,17 +46,21 @@ enum nucleotide_bases : nucleotide {N = nucleotide('N'), A = nucleotide('A'), T 
 alias nucleotide[] dna_sequence;
 
 
-/* reads a stream of characters and convert to a nucleotides sequence
-   need to add error checking so only valid nucleotide bases are accepted */
+/* convert a stream of characters to a dna sequence */
 dna_sequence to_dna(string str) {
   dna_sequence seq;
   foreach(char c; str.toUpper) {
-    seq ~= cast(nucleotide)(c);
+   if (is_nucleotide(c) == true){
+      seq ~= cast(nucleotide)(c);
+   /* create a dna string but give warning of illegal bases */
+   } else {
+     writeln("Warning: unrecognised nucleotide base");
+      seq ~= cast(nucleotide)(c);
+   }
   }
-  return seq;
+return seq;
 }
 
- 
 /* check if a base is a valid nucleotide character */
 bool is_nucleotide(char base){
   if (base == nucleotide_bases.A.get_base()) return true;
@@ -64,10 +68,9 @@ bool is_nucleotide(char base){
   if (base == nucleotide_bases.G.get_base()) return true;
   if (base == nucleotide_bases.C.get_base()) return true;
   if (base == nucleotide_bases.N.get_base()) return true;
-  writefln("Error: Unrecognised nucleotide base: %s", base);
+  writefln("Warning: illegal nucleotide base: %s", base);
   return false;
 }
-
 
 /*complement a nucleotide base */
 pure nucleotide complement(nucleotide base){
