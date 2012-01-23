@@ -11,6 +11,7 @@ import std.stdio;
 import std.string;
 import std.conv;
 import std.array;
+import std.math;
 
 struct nucleotide {
   public:
@@ -49,12 +50,12 @@ alias nucleotide[] dna_sequence;
 /* convert a stream of characters to a dna sequence */
 dna_sequence to_dna(string str) {
   dna_sequence seq;
-  foreach(char c; str.toUpper) {
+  foreach(int index,char c; str.toUpper) {
    if (is_nucleotide(c) == true){
       seq ~= cast(nucleotide)(c);
    /* create a dna string but give warning of illegal bases */
    } else {
-     writeln("Warning: unrecognised nucleotide base");
+     writefln("Warning: unrecognised nucleotide base at pos: %s", index + 1);
       seq ~= cast(nucleotide)(c);
    }
   }
@@ -68,9 +69,10 @@ bool is_nucleotide(char base){
   if (base == nucleotide_bases.G.get_base()) return true;
   if (base == nucleotide_bases.C.get_base()) return true;
   if (base == nucleotide_bases.N.get_base()) return true;
-  writefln("Warning: illegal nucleotide base: %s", base);
+  //writefln("Warning: illegal nucleotide base: %s", base);
   return false;
 }
+
 
 /*complement a nucleotide base */
 pure nucleotide complement(nucleotide base){
