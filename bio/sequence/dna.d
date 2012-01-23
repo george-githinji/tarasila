@@ -40,7 +40,7 @@ struct nucleotide {
 
 
 /* define nucleotide as the basic type for all nucleotide residues */
-enum nucleotide_bases : nucleotide {N = nucleotide('N'), A = nucleotide('A'), T = nucleotide('T'), C = nucleotide('C'), G = nucleotide('G') };
+enum nucleotide_bases : nucleotide {N = nucleotide('N'), A = nucleotide('A'), T = nucleotide('T'), C = nucleotide('C'), G = nucleotide('G'),Y = nucleotide('Y'),R = nucleotide('R'), };
 
 
 /* a dna sequence is an array of nucleotides */
@@ -69,10 +69,35 @@ bool is_nucleotide(char base){
   if (base == nucleotide_bases.G.get_base()) return true;
   if (base == nucleotide_bases.C.get_base()) return true;
   if (base == nucleotide_bases.N.get_base()) return true;
+  if (base == nucleotide_bases.Y.get_base()) return true;
+  if (base == nucleotide_bases.R.get_base()) return true;
   //writefln("Warning: illegal nucleotide base: %s", base);
   return false;
 }
 
+/* Describe a nucleotide as a purine(R,[A or G]) or pyrimidine(Y,[C or T]) */
+pure nucleotide get_type(nucleotide base){
+  switch(base.get_base()){
+    case nucleotide_bases.A.get_base():
+      return nucleotide_bases.R;
+      break;
+    case nucleotide_bases.G.get_base():
+      return nucleotide_bases.R;
+      break;
+    case nucleotide_bases.C.get_base():
+      return nucleotide_bases.Y;
+      break;
+    case nucleotide_bases.T.get_base():
+      return nucleotide_bases.Y;
+      break;
+    case nucleotide_bases.N.get_base():
+      return nucleotide_bases.N;
+      break;
+    default:
+      return nucleotide_bases.N;
+      break;
+  }
+}
 
 /*complement a nucleotide base */
 pure nucleotide complement(nucleotide base){
