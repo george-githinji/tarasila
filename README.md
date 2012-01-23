@@ -1,6 +1,7 @@
 # Tarasila
 
-This is a set of modules aimed at high performace parsing and manipulation of biological sequences
+This is a set of pre-alpha modules aimed at high performace parsing and manipulation of biological sequences
+using the D programming language
 
 ## Compiling tarasila
 

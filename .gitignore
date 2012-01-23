@@ -2,6 +2,9 @@
 # ignore build files
 build
 
+# ignore binaries directory
+bin
+
 # ignore binaries
 *.bin
 
