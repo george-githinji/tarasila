@@ -124,3 +124,16 @@ pure nucleotide complement(nucleotide base){
   }
   assert(0);
 }
+
+//incomplete function
+pure transcribe(nucleotide base){
+  switch (base.get_base()){
+    case nucleotide_bases.T.get_base():
+      return nucleotide_bases.U;
+      break;
+    default:
+      break;
+  }
+  assert(0);
+}
+
