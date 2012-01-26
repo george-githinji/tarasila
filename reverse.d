@@ -7,15 +7,19 @@ import bio.sequence.dna;
 void main(string[] args){
   if(args.length > 1) {
 
-  dna_sequence s;
-  dna_sequence c;
+  dna_sequence str;
+  dna_sequence complemented;
+  dna_sequence types;
 
-    s = to_dna(args[1]);
+    str = to_dna(args[1]);
     
-    foreach(n; s.reverse){
-      c ~= complement(n);
+    foreach(residue; str.reverse){
+      complemented ~= complement(residue);
+      types ~= get_type(residue);
+
     }
 
-    writefln(cast(string)(c));
+    writefln(cast(string)(complemented));
+    //writefln(cast(string)(types));
   }
 }
