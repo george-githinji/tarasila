@@ -10,6 +10,7 @@ import std.stdio;
 import std.stream;
 import std.regex;
 import std.array;
+import std.algorithm;
 import bio.sequence.fasta;
 
 
@@ -31,6 +32,8 @@ int main(string[] args){
       name = entry.hit.idup[1..$].chomp; //remove the ">" 
       current.clear();
     }else{
+      //remove spaces from the line
+      line = removechars(line," ".dup);
       current.put(line);
     }
   }
