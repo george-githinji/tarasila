@@ -4,13 +4,14 @@
  * A module to parse entries of a fasta file
 
  */
-
 module fasta;
 
 import std.stdio;
 import std.stream;
 import std.regex;
 import std.array;
+//import std.algorithm;
+import std.string;
 
 class entry {
 
@@ -21,7 +22,7 @@ class entry {
 
   /* get a sequence */
   this(string seq){
-    this.seq = seq;
+    this.seq = seq.toLower;
   }
 
   /* read a name*/
@@ -34,16 +35,29 @@ class entry {
     return seq;
   }
 
+  /* return the number of characters */
+  ulong count(string c){
+   auto total = countchars(seq,c.toLower);
+   return total;
+  }
 
   /* entries is an array of entry */
-  alias entry[] entries;
+  alias entry[] Entries;
 
 
- /*default constructor */
+  /*default constructor */
   this(){}
-  private:
+  public:
   string name;
   string seq;
-};
+}
 
+unittest{
+ entry ent = new entry();
+ ent.name  = "seq1";
+ ent.seq   = "cggggatgata";
+
+ assert(ent.get_name() == "seq1");
+ assert(ent.get_seq()  == "cggggatgata");
+}
 
