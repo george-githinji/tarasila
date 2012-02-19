@@ -3,7 +3,6 @@ import std.string;
 import std.conv;
 import bio.sequence.dna;
 
-
 void main(string[] args){
   if(args.length > 1) {
 
@@ -16,7 +15,6 @@ void main(string[] args){
     foreach(residue; str.reverse){
       complemented ~= complement(residue);
       types ~= get_type(residue);
-
     }
 
     writefln(cast(string)(complemented));
