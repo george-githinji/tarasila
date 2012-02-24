@@ -49,6 +49,7 @@ class Record {
 
   /*default constructor */
   this(){}
+
   public:
   string name;
   string seq;
