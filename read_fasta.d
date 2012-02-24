@@ -13,6 +13,7 @@ import std.array;
 import std.algorithm;
 import std.string;
 import bio.sequence.fasta;
+import std.parallelism;
 
 int main(string[] args){
   auto filename = args[1];
@@ -23,7 +24,7 @@ int main(string[] args){
   auto current = appender!(char[]);
   string name;
   string[string] map;
-  
+
   foreach(ulong n,char[] line; file) {
     auto entry = match(line,entry_name);
     if(entry){//we are in a header line
@@ -44,14 +45,25 @@ int main(string[] args){
   }
   map[name] = current.data.idup;//remember last capture
   file.close();
-  writeln(map);
+  //writeln(map);
 
-  entry ent = new entry();
-  ent.name = "seq1";
-  ent.seq  = "acgcccgat";
+  Records records;
 
-  writeln(ent.get_name);
-  writeln(ent.get_seq);
-  writeln(ent.count("A"));
+  foreach(name,sequence;map){
+    Record ent = new Record();
+    ent.name = name;
+    ent.seq = sequence;
+    records ~= ent;
+  }
+ 
+  ulong total_records = records.length;
+
+  foreach(rec;parallel(records)){
+    //writeln(rec.get_seq);
+    //writeln(rec.count("c"));
+    writeln(rec.seq_size());
+  }
+
+   writefln("total records processed: %s ",total_records);
   return 0;
 }
