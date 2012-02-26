@@ -26,23 +26,23 @@ class Record {
   }
 
   /* read a name*/
-  pure get_name(){
+  pure string get_name(){
     return name;
   }
 
   /* read a sequence */
-  pure get_seq(){
+  pure string get_seq(){
     return seq;
   }
 
   /* return the number of characters */
-  ulong count(string c){
+  long count(string c){
     auto total = countchars(seq,c.toLower);
     return total;
   }
 
   /*return the length of the sequence */
-  ulong seq_size(){
+  long seq_size(){
     auto size = seq.length;
     return size;
   }
