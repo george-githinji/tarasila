@@ -10,9 +10,50 @@ import std.stdio;
 import std.stream;
 import std.regex;
 import std.array;
-//import std.algorithm;
+import std.algorithm;
 import std.string;
 
+class FastaParser{
+
+  /* get a file name to process */
+  this(string inputfile){
+    this.inputfile = inputfile;
+  }
+
+  string[string] parse(){
+    auto delimeter = regex(r"^>(.*)");
+    auto current = appender!(char[]);
+    string name;
+    string[string] map;
+    Stream file = new BufferedFile(inputfile);
+    
+    foreach(ulong n,char[] line; file){
+      auto entry = match(line,delimeter);
+      if(entry){                            // we are in the header line
+        if(name){                           // write what was caught
+          map[name] = current.data.idup;    // dup coz current.data is reused
+        }
+        name = entry.hit.idup[1..$].chomp;
+        current.clear();
+      }else{
+        line = removechars(line," ".dup);   // remove spaces
+        line = toUpper(line);               // lowercase 
+        current.put(line);
+      }
+    }
+    map[name] = current.data.idup;          // last capture
+    file.close();
+    return map;
+  }
+
+  /* default constructor */
+  this(){}
+
+  public:
+  string inputfile;
+}
+
+/* a record represents a single entry in a fasta */
 class Record {
 
   /* get an Record name */
