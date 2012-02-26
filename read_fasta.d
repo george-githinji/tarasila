@@ -11,11 +11,16 @@ import std.array;
 import std.algorithm;
 import std.string;
 import std.parallelism;
+import std.conv;
 import bio.sequence.fasta;
 
 void main(string[] args){
   
   auto filename = args[1];
+  long seq_size = to!long(args[2]);
+
+  // convert seq_size to integer
+
   auto entry_name = regex(r"^>(.*)");
 
   Stream file = new BufferedFile(filename);
@@ -56,7 +61,7 @@ void main(string[] args){
     Record ent = new Record();
     ent.name = name;
     ent.seq = sequence;
-    if(ent.seq_size > 300){
+    if(ent.seq_size > seq_size){
       //records ~= ent;
       writeln(ent.seq_size);
     }
