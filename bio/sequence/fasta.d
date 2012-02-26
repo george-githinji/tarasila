@@ -26,7 +26,7 @@ class FastaParser{
     string name;
     string[string] map;
     Stream file = new BufferedFile(inputfile);
-    
+
     foreach(ulong n,char[] line; file){
       auto entry = match(line,delimeter);
       if(entry){                            // we are in the header line
@@ -37,11 +37,11 @@ class FastaParser{
         current.clear();
       }else{
         line = removechars(line," ".dup);   // remove spaces
-        line = toUpper(line);               // lowercase 
+        line = toUpper(line);               // uppercase 
         current.put(line);
       }
     }
-    map[name] = current.data.idup;          // last capture
+    map[name] = current.data.idup;          // remember the last capture
     file.close();
     return map;
   }
