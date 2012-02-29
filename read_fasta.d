@@ -1,5 +1,5 @@
 /* read the contents of a file from std input
-   copyright (c) 2012
+   Copyright (c) 2012
    Learning D programming for bioinformatics
  */
 
@@ -18,7 +18,7 @@ void main(string[] args){
 
   FastaParser parser = new FastaParser();
   parser.inputfile = filename;            // reads a file path
-  map_hash = parser.parse;               //an associative array
+  map_hash = parser.toHash;               //an associative array
 
   foreach(name, sequence; map_hash){
     Record ent = new Record();
@@ -30,11 +30,11 @@ void main(string[] args){
   total_records = records.length;
 
   /* iterates in the fasta array of records in parallel */
-  //foreach(rec;parallel(records)){
+  foreach(rec;parallel(records)){
     //writeln(rec.get_seq);
     //writeln(rec.count("c"));
-    //writeln(rec.seq_size());
-  //}
+    writeln(rec.seq_size());
+  }
 
    writefln("total records filtered by length: %s ",total_records);
 }
