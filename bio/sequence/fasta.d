@@ -20,7 +20,7 @@ class FastaParser{
     this.inputfile = inputfile;
   }
 
-  string[string] parse(){
+  string[string] toHash(){
     auto delimeter = regex(r"^>(.*)");
     auto current = appender!(char[]);
     string name;
@@ -107,4 +107,3 @@ unittest{
   assert(ent.get_name() == "seq1");
   assert(ent.get_seq()  == "cggggatgata");
 }
-
