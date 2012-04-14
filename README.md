@@ -1,7 +1,7 @@
 # Tarasila
 
-This is a set of pre-alpha modules aimed at high performace parsing and manipulation of biological sequences
-using the D programming language. Am actually using this repo to learn D! 
+Pre-alpha modules for high performace parsing and manipulation of biological sequences
+using the D programming language.
 
 ## Compiling tarasila
 
