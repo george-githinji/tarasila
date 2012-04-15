@@ -10,7 +10,7 @@ import std.conv;
 import bio.sequence.fasta;
 
 void main(string[] args){
-  
+
   auto filename = args[1];
   string[string] map_hash;
   long total_records;
@@ -26,7 +26,7 @@ void main(string[] args){
     ent.seq = sequence;
     records ~= ent;
   }
-  
+
   total_records = records.length;
 
   /* iterates in the fasta array of records in parallel */
