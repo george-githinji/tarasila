@@ -1,7 +1,7 @@
 /*
  * fasta.d
  * Copyright (c) 2012 George Githinji
- * A module to parse Records of a fasta file
+ * A module to parse a fasta file
 
  */
 module fasta;
