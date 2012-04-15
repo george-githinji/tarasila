@@ -18,7 +18,7 @@ void main(string[] args){
 
   FastaParser parser = new FastaParser();
   parser.inputfile = filename;            // reads a file path
-  map_hash = parser.toHash;               //an associative array
+  map_hash = parser.makeHash;               //an associative array
 
   foreach(name, sequence; map_hash){
     Record ent = new Record();

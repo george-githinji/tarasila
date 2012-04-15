@@ -20,7 +20,7 @@ class FastaParser{
     this.inputfile = inputfile;
   }
 
-  string[string] toHash(){
+  string[string] makeHash(){
     auto delimeter = regex(r"^>(.*)");
     auto current = appender!(char[]);
     string name;
