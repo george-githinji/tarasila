@@ -76,10 +76,9 @@ class Record {
     return seq;
   }
 
-  /* return the number of characters */
-  long count(string c){
-    auto total = countchars(seq,c.toLower);
-    return total;
+  /* return the number of characters foo */
+  long count_of(string pattern){
+    return countchars(get_seq,pattern);
   }
 
   /*return the length of the sequence */
