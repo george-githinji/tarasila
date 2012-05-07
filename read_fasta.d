@@ -30,11 +30,10 @@ void main(string[] args){
   total_records = records.length;
 
   /* iterates in the fasta array of records in parallel */
-  foreach(rec;parallel(records)){
+  foreach(rec;(records)){
     //writeln(rec.get_seq);
-    //writeln(rec.count("c"));
-    writeln(rec.seq_size());
+    writeln(rec.count_of("c"));
+    //writeln(rec.seq_size());
   }
 
-   writefln("total records filtered by length: %s ",total_records);
 }
