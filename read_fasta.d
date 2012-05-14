@@ -32,7 +32,7 @@ void main(string[] args){
   /* iterates in the fasta array of records in parallel */
   foreach(rec;(records)){
     //writeln(rec.get_seq);
-    writeln(rec.count_of("c"));
+    writeln(rec.count_of("C"));
     //writeln(rec.seq_size());
   }
 
