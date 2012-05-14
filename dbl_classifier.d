@@ -5,9 +5,17 @@
 //import modules
 import std.stdio;
 import std.conv;
-//import std.parallelism;
-//import std.algorithm;
+import std.parallelism;
+import std.algorithm;
 import bio.sequence.fasta;
+
+class utils{
+
+  long count_cysteins(){
+    return countchars(seq,"C");
+  }
+
+}
 
 void main(string[] args){
   auto filename = args[1];
@@ -25,17 +33,18 @@ void main(string[] args){
     records ~= ent;  
   }
 
-  //classify each record in parallel
+  //classify each record
   foreach(rec; records){
     //writeln(rec.get_seq);
     writeln(rec.get_name);
 
     //count the number of cysteine
     long total_cys = rec.count_of("C");
-    writefln("cys_count:",total_cys);
-    
+    writefln("cyscount",total_cys);
+
     //get the length of the sequence
     auto seq_len = rec.seq_size();
+
     //writeln("seq_length:",seq_len);
 
     //does sequence have WW?
