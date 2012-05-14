@@ -7,7 +7,7 @@
 module fasta;
 
 import std.stdio;
-import std.stream;
+import std.stream; //to be removed 
 import std.regex;
 import std.array;
 import std.algorithm;
@@ -25,7 +25,7 @@ class FastaParser{
     auto current = appender!(char[]);
     string name;
     string[string] map;
-    Stream file = new BufferedFile(inputfile);
+    Stream file = new BufferedFile(inputfile); //make use of std.io calls instead
 
     foreach(ulong n,char[] line; file){
       auto entry = match(line,delimeter);
