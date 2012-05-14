@@ -6,6 +6,7 @@ bin
 
 # ignore binaries
 *.bin
+classifier
 readfasta
 # For MacOS:
 .DS_Store
