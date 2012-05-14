@@ -1,6 +1,6 @@
 # Tarasila
 
-Pre-alpha modules for high performace parsing and manipulation of biological sequences
+Pre-alpha modules for parsing and manipulation of biological sequences
 using the D programming language.
 
 ## Compiling tarasila
@@ -11,7 +11,7 @@ To compile tarasila, a recent edition of the [D compiler][D] is required:
 
 ## Platforms
 
-The modules are developed and tested on Mac OS X but they should build on Linux and Windows.
+The modules are developed and tested using dmd on Mac OS X
 
 ## License
 
