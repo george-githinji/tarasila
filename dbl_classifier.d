@@ -9,13 +9,13 @@ import std.parallelism;
 import std.algorithm;
 import bio.sequence.fasta;
 
-class utils{
+//class utils{
 
-  long count_cysteins(){
-    return countchars(seq,"C");
-  }
+  //long count_cysteins(){
+    //return countchars(seq,"C");
+  //}
 
-}
+//}
 
 void main(string[] args){
   auto filename = args[1];
@@ -39,13 +39,12 @@ void main(string[] args){
     writeln(rec.get_name);
 
     //count the number of cysteine
-    long total_cys = rec.count_of("C");
-    writefln("cyscount",total_cys);
+    auto total_cys = rec.count_of("C");
+    writeln("cyscount:",total_cys);
 
     //get the length of the sequence
     auto seq_len = rec.seq_size();
-
-    //writeln("seq_length:",seq_len);
+    writeln("seq_length:",seq_len);
 
     //does sequence have WW?
 
